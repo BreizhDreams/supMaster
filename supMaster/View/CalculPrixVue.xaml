@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="supMaster.View.CalculPrixVue"
+             Title="CalculPrixVue">
+    <StackLayout BackgroundColor="LightGray">
+        <Label Text="TARIFICATIONS  " TextColor="Black" HorizontalTextAlignment="Center" Margin="0,50,0,0" FontSize="50" FontAttributes="Bold"></Label>
+        <Entry x:Name="nbDocUser" Placeholder="Nombre d'adresse souhaitez :" PlaceholderColor="Black" Margin="600,40,600,0" TextColor="Black" BackgroundColor="White"></Entry>
+        <Grid Margin="300,-20,300,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <CheckBox x:Name="cBoxTelechargement" Grid.Column="0" Color="Green" CheckedChanged="verifCheckBoxTelechargement"></CheckBox>
+            <Label  Grid.Column="0" Text="Téléchargement" Margin="40" TextColor="Black"></Label>
+            <CheckBox x:Name="cBoxCDROM" Grid.Column="1" Color="Green" CheckedChanged="verifCheckBoxCDROM"></CheckBox>
+            <Label  Grid.Column="1" Text="CD-ROM" Margin="40" TextColor="Black"></Label>
+            <CheckBox x:Name="cBoxListe" Grid.Column="2" Color="Green" CheckedChanged="verifCheckBoxListe"></CheckBox>
+            <Label  Grid.Column="2" Text="Liste Papier" Margin="40" TextColor="Black"></Label>
+            <CheckBox x:Name="cBoxEtiquette" Grid.Column="3" Color="Green" CheckedChanged="verifCheckBoxEtiquette"></CheckBox>
+            <Label  Grid.Column="3" Text="Etiquettes" Margin="40" TextColor="Black"></Label>
+        </Grid>
+
+        <Grid Margin="50,20,50,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="1000" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="Prix de Vente " TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="LightBlue"></Label>
+            <Label Grid.Row="0" Grid.Column="1" Text="Tarifs indiqués à l'adresse par tranche selon le volume total d'adresses de la Commande " TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="LightBlue" ></Label>
+            <Label Grid.Row="0" Grid.Column="2" Text="Frais de Gestion" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="LightBlue"></Label>
+            
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <CollectionView ItemsSource="{Binding LesColonneList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="50,0,1050,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column ="0"  Text="{Binding Nom}" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="LightBlue"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding LesColonneList2}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="-3200,0,20,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Text="{Binding Nom}"  TextColor="Black" Grid.Row="1" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Col3}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="-4750,0,50,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="2" Text="{Binding Nom}"  TextColor="Black" Grid.Row="1" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Col4}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="-4450,0,250,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="3" Text="{Binding Nom}"  TextColor="Black" Grid.Row="1" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Col5}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="-750,0,260,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="3" Text="{Binding Nom}"  TextColor="Black" Grid.Row="1" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Col6}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="-4200,0,260,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="5" Text="{Binding Nom}"  TextColor="Black" Grid.Row="1" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Col7}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="-4000,0,200,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="6" Text="{Binding Nom}"  TextColor="Black" Grid.Row="1" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Col8}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="-2400,0,200,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="7" Text="{Binding Nom}"  TextColor="Black" Grid.Row="1" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Col9}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="-300,0,200,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="8" Text="{Binding Nom}"  TextColor="Black" Grid.Row="1" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Col10}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="-200,0,50,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="9" Text="{Binding Nom}" TextColor="Black" Grid.Row="1" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Button Text="Calcul du Prix" HorizontalOptions="Center" TextColor="Black" BackgroundColor="LightBlue" Clicked="calculPrix_Clicked" Margin="0,30,0,-20"></Button>
+        <Grid Margin="150,30,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Prix à Payer:" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="End" Margin="0,0,20,0" FontSize="25"></Label>
+            <Label Grid.Column="1" Text="{Binding PrixConfig}" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Start" FontSize="25"></Label>
+
+        </Grid>
+    </StackLayout>
+</ContentPage>
